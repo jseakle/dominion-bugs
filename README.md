@@ -3,4 +3,4 @@ Tools for alerting users of the [Shuffle iT Dominion client](https://dominion.ga
 
 ## Usage
 
-For now, dominion-bugs is available as plain javascript that you can run in the developer console, or as a bookmarklet — right click that link, choose Copy Link Address, and then paste it into the URL field of a new bookmark on your bookmarks bar. Click it at the beginning of a Dominion game, and if any known bugs are possible, a message explaining them will be displayed.
+For now, dominion-bugs is available as plain javascript that you can run in the developer console, or as a [bookmarklet](https://github.com/jseakle/dominion-bugs/blob/main/bookmarklet) — open that link, copy the single long line of code, and then paste it into the URL field of a new bookmark on your bookmarks bar. Click it at the beginning of a Dominion game, and if any known bugs are possible, a message explaining them will be displayed.
