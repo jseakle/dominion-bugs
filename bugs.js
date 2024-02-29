@@ -24,6 +24,6 @@ fetch("https://gist.githubusercontent.com/jseakle/583d977f789feb416bf5989004f1a6
         for(let alt of alerts) {
              msg += alt + "\n\n"
         }
-	      alert(msg + "\nIf you disprove OR REPRODUCE any of these bugs, please let us know in #shuffleit-client!")
+	alert(msg + "\nIf you disprove OR REPRODUCE any of these bugs, please let us know in #shuffleit-client!")
     }
 })
