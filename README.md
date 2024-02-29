@@ -16,7 +16,7 @@ You can see (and comment on) the source data for the known bugs in [this Google 
 I am happy to receive pull requests and comments regarding anything that you think would make this more useful. Particular areas of known future work include:
 
 * TamperMonkey script + easy setup guide
-* Getting the script to read the JSON directly from google sheets so I don't have to paste things into a gist
+* Getting the script to read the JSON directly from google sheets so I don't have to paste things into a gist. This looks slightly annoying but should be possible, see https://stackoverflow.com/questions/68796548/404-while-trying-to-fetch-sheet-data-as-json
 * Making the alerts name which cards triggered them (but what about when many combinations trigger the same alert?)
 * Implementing the "other players' turns" bugs
 * Implementing bugs with deprecated cards
