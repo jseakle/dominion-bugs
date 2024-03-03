@@ -3,18 +3,19 @@ fetch("https://gist.githubusercontent.com/jseakle/583d977f789feb416bf5989004f1a6
     let names = [];
     let alerts = [];
     for(let e of nodes) { if(e.children[0]) {names.push(e.children[0].innerHTML)}}
+    let literals = []
     for(let bug of bugs.bugs) {
         let count = 0;
         for(let card of bug) {
             if(card[0] == "!") {
                 for(let elt of bugs[card]) {
-                    if(names.includes(elt)) {
+                    if(names.includes(elt) && !literals.includes(elt)) {
                        count += 1;
                        break
                     }
                 }
             }
-            else if(names.includes(card)) {count += 1}
+            else if(names.includes(card)) {count += 1; literals.push(card)}
         }
         if(count == bug.length - 1 && !alerts.includes(bug.at(-1))) { alerts.push(bug.at(-1)) }
     }
