@@ -1,4 +1,4 @@
-fetch("https://gist.githubusercontent.com/jseakle/583d977f789feb416bf5989004f1a6d2/raw").then((response) => response.json()).then((bugs) => {
+fetch("https://tipr.tk/static/dombugs.json").then((response) => response.json()).then((bugs) => {
     let nodes = document.getElementsByClassName('name-layer');
     let names = [];
     let alerts = [];
