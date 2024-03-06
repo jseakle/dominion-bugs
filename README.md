@@ -13,8 +13,8 @@ You can see (and comment on) the source data for the known bugs in [this Google 
 
 I am happy to receive pull requests and comments regarding anything that you think would make this more useful. Particular areas of known future work include:
 
+* Making it prettier
 * Making the alerts name which cards triggered them (but what about when many combinations trigger the same alert?)
-* Implementing the "other players' turns" bugs
 * Implementing bugs with deprecated cards
 
 and of course
