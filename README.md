@@ -3,7 +3,9 @@ Tools for alerting users of the [Shuffle iT Dominion client](https://dominion.ga
 
 ## Usage
 
-dominion-bugs is best installed as a [tampermonkey script](https://github.com/jseakle/dominion-bugs/blob/main/tampermonkey-script.js) (you can also view and install it [on Greasy Fork](https://greasyfork.org/en/scripts/489117-dominion-bugs)). In this form, it will automatically alert you at the beginning of each game if any known bugs are present in the current kingdom. If you want to try it out without installing Tampermonkey, it is also available as [plain javascript](https://github.com/jseakle/dominion-bugs/blob/main/bugs.js) that you can run in the developer console, or as a [bookmarklet](https://github.com/jseakle/dominion-bugs/blob/main/bookmarklet) — open that link, copy the single long line of code, and then paste it into the URL field of a new bookmark on your bookmarks bar. Then click it during a Dominion game to see the list of present bugs, if any.
+dominion-bugs is best installed as a [tampermonkey script](https://github.com/jseakle/dominion-bugs/blob/main/tampermonkey-script.js) (you can also view and install it [on Greasy Fork](https://greasyfork.org/en/scripts/489117-dominion-bugs)). In this form, it will automatically alert you at the beginning of each game if any known bugs are present in the current kingdom.
+
+If you want to try it out without installing Tampermonkey, it is also available as [plain javascript](https://github.com/jseakle/dominion-bugs/blob/main/bugs.js) that you can run in the developer console, or as a [bookmarklet](https://github.com/jseakle/dominion-bugs/blob/main/bookmarklet) — open that link, copy the single long line of code, and then paste it into the URL field of a new bookmark on your bookmarks bar. Then click it during a Dominion game to see the list of present bugs, if any.
 
 ## Data
 
