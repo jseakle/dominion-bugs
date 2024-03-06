@@ -8,17 +8,18 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+await import("https://jseakle.github.io/dominion-bugs/bugs.js").then((bugs_module) => {
     'use strict';
 
     // Change this to the class name you want to monitor
     const targetClassName = 'text-counter'
     var time = performance.now()
+    var newtime = null
     var first = true
-    console.log('start')
 
     // Create a new MutationObserver instance
     const observer = new MutationObserver(function(mutations) {
+        var game_started = false;
         mutations.forEach(function(mutation) {
 
 
@@ -29,52 +30,28 @@
 
                     // Check if the added node or any of its children have the target class
                     if (nodeOrChildHasClass(node, targetClassName)) {
-                        var newtime = performance.now()
-                        if(!first && newtime - time < 8000) {
-                            console.log(newtime-time)
-                            return
-                        }
-                        first = false
-                        time = newtime
-                        console.log('set: ' + time)
-
-                        fetch("https://tipr.tk/static/dombugs.json").then((response) => response.json()).then((bugs) => {
-                            let nodes = document.getElementsByClassName('name-layer');
-                            let names = [];
-                            let alerts = [];
-                            for(let e of nodes) { if(e.children[0]) {names.push(e.children[0].innerHTML)}}
-                            let literals = []
-                            for(let bug of bugs.bugs) {
-                                let count = 0;
-                                for(let card of bug) {
-                                    if(card[0] == "!") {
-                                        for(let elt of bugs[card]) {
-                                            if(names.includes(elt) && !literals.includes(elt)) {
-                                                count += 1;
-                                                break
-                                            }
-                                        }
-                                    }
-                                    else if(names.includes(card)) {count += 1; literals.push(card)}
-                                }
-                                if(count == bug.length - 1 && !alerts.includes(bug.at(-1))) { alerts.push(bug.at(-1)) }
-                            }
-                            if(alerts.length) {
-                                console.log(alerts)
-                                let msg = ""
-                                for(let alt of alerts) {
-                                    msg += alt + "\n\n"
-                                }
-                                alert(msg + "\nIf you disprove OR REPRODUCE any of these bugs, please let us know in #shuffleit-client!")
-                            }
-                        }).catch(error => { alert("dominion-bugs can no longer contact the bug list server. try again in a bit, or if it persists, let Personman know on discord.") })
+                        game_started = true
+                        break;
                     }
                 }
+
             }
 
         });
+        if(game_started) {
+            setTimeout(maybe_detect, 100)
+        }
     });
 
+    function maybe_detect() {
+        newtime = performance.now()
+        if((!first && newtime - time < 8000) || document.getElementsByClassName('new-turn-line').length) {
+            return
+        }
+        first = false
+        time = newtime
+        bugs_module.detect_bugs()
+    }
     // Helper function to check if a node or any of its children have a particular class
     function nodeOrChildHasClass(node, className) {
         if (node.nodeType == 1) {
@@ -98,4 +75,4 @@
         childList: true,
         subtree: true
     });
-})();
+});
