@@ -8,7 +8,8 @@
 // @grant        none
 // ==/UserScript==
 
-await import("https://jseakle.github.io/dominion-bugs/bugs.js").then((bugs_module) => {
+(async ()=>{
+    await import("https://jseakle.github.io/dominion-bugs/bugs.js").then((bugs_module) => {
     'use strict';
 
     // Change this to the class name you want to monitor
@@ -75,4 +76,4 @@ await import("https://jseakle.github.io/dominion-bugs/bugs.js").then((bugs_modul
         childList: true,
         subtree: true
     });
-});
+})})();
