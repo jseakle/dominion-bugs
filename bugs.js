@@ -5,6 +5,7 @@ fetch("https://tipr.tk/static/dombugs.json").then((response) => response.json())
     for(let e of nodes) { if(e.children[0]) {names.push(e.children[0].innerHTML)}}
     let literals = []
     for(let bug of bugs.bugs) {
+	if(bug.at(-1) == 'Rare') { continue; }
         let count = 0;
         for(let card of bug) {
             if(card[0] == "!") {
