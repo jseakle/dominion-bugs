@@ -1,4 +1,4 @@
-function detect_bugs() {
+export function detect_bugs() {
 	fetch("https://tipr.tk/static/dombugs.json").then((response) => response.json()).then((bugs) => {
 	    console.log('foo')
 	    let nodes = document.getElementsByClassName('name-layer');
